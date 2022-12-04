@@ -23,8 +23,8 @@ spec:
       retries: 5
   values:
     image:
-      repository: ghcr.io/miguelndecarvalho/speedtest-exporter
-      tag: v3.5.3
+      repository: ghcr.io/home-ops/speedtest-exporter
+      tag: v1.0.2
     env:
       SPEEDTEST_SERVER: "10292"
     service:
