@@ -2,33 +2,35 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: daterbasters-gromit-app
+  name: nomitoring-app-wallace
   namespace: flux-system
   labels:
     substitution.flux.home.arpa/enabled: "true"
 spec:
-  interval: 30m
-  wait: true
-  sourceRef:
-    kind: GitRepository
-    name: flux-cluster
-  path: ./cluster/test/daterbasters/gromit/app
-  prune: true
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: daterbasters-gromit-resource
-  namespace: flux-system
-  labels:
-    substitution.flux.home.arpa/enabled: "true"
-spec:
-  interval: 30m
+  interval: 10m
   wait: true
   sourceRef:
     kind: GitRepository
     name: flux-cluster
   dependsOn:
-    - name: daterbasters-gromit-app
-  path: ./cluster/test/daterbasters/gromit/resource
+    - name: daterbasters-app-gromit
+  path: ./cluster/test/nomitoring/wallace/app
+  prune: true
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: nomitoring-resource-wallace
+  namespace: flux-system
+  labels:
+    substitution.flux.home.arpa/enabled: "true"
+spec:
+  interval: 10m
+  wait: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-cluster
+  dependsOn:
+    - name: nomitoring-app-wallace
+  path: ./cluster/test/nomitoring/wallace/resource
   prune: true

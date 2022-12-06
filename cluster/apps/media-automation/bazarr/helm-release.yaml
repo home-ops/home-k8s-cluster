@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: &app navidrome
+  name: bazarr
   namespace: default
 spec:
   interval: 15m
@@ -28,37 +28,19 @@ spec:
     controller:
       type: statefulset
     image:
-      repository: ghcr.io/onedr0p/navidrome
-      tag: 0.48.0@sha256:c53c03faef860ee25f5a1b6aab2f4a5935e56312304972cfc208a7608942a34e
+      repository: ghcr.io/onedr0p/bazarr
+      tag: 1.1.3@sha256:cb66a9c52516c80dbc5482774db37bb8eb60c934f9e02dde6b6167eb195705bb
     env:
       TZ: "${TIMEZONE}"
-      ND_DATAFOLDER: /config
-      ND_ENABLEGRAVATAR: "true"
-      ND_LOGLEVEL: info
-      ND_MUSICFOLDER: /music
-      ND_PORT: &port 80
-      ND_PROMETHEUS_ENABLED: "true"
-      ND_REVERSEPROXYUSERHEADER: "Remote-User"
-      ND_REVERSEPROXYWHITELIST: "${NET_POD_CIDR}"
-      ND_SCANSCHEDULE: "@every 1h"
-    envFrom:
-      - secretRef:
-          name: *app
     service:
       main:
         ports:
           http:
-            port: *port
-    serviceMonitor:
-      main:
-        enabled: true
+            port: 6767
     ingress:
       main:
         enabled: true
         ingressClassName: "nginx"
-        annotations:
-          auth.home.arpa/enabled: "true"
-          external-dns.home.arpa/enabled: "true"
         hosts:
           - host: &host "{{ .Release.Name }}.${SECRET_PUBLIC_DOMAIN}"
             paths:
@@ -78,21 +60,24 @@ spec:
       - name: config
         mountPath: /config
         accessMode: ReadWriteOnce
-        size: 5Gi
+        size: 1Gi
         storageClass: ceph-block
         labels:
           snapshot.home.arpa/enabled: "true"
     persistence:
-      music:
+      media:
         enabled: true
         type: nfs
         server: "expanse.${SECRET_PRIVATE_DOMAIN}"
-        path: /eros/Media/Library/Music
-        mountPath: /music
-        readOnly: true
+        path: /eros/Media
+        mountPath: /media
+      add-ons:
+        enabled: true
+        type: emptyDir
+        mountPath: /add-ons
     resources:
       requests:
         cpu: 10m
         memory: 250Mi
       limits:
-        memory: 750Mi
+        memory: 2000Mi

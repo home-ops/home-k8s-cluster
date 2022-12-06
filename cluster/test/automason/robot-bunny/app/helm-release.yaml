@@ -2,8 +2,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: &app excalidraw
-  namespace: default
+  name: robot-bunny
+  namespace: automason
 spec:
   interval: 15m
   chart:
@@ -16,44 +16,27 @@ spec:
         namespace: flux-system
   install:
     createNamespace: true
-    remediation:
-      retries: 5
-  upgrade:
-    remediation:
-      retries: 5
   values:
-    controller:
-      replicas: 3
-      strategy: RollingUpdate
     image:
-      repository: docker.io/excalidraw/excalidraw
-      tag: latest@sha256:8f81cf3cbaa62a53e662d4e37d2dd0b0ee760202ff3f116827386af9c0ec2120
+      repository: ghcr.io/onedr0p/theme-park
+      tag: 1.13.1@sha256:f6ad58cc7072e9abef102ec600e1c9fa7ac23ca00f57bdd5878a24443aa55d44
     service:
       main:
         ports:
           http:
-            port: 80
+            port: 8080
     ingress:
       main:
         enabled: true
         ingressClassName: "nginx"
-        annotations:
-          external-dns.home.arpa/enabled: "true"
         hosts:
-          - host: &host "draw.${SECRET_PUBLIC_DOMAIN}"
+          - host: &host "{{ .Release.Name }}.${SECRET_PUBLIC_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
               - *host
-    topologySpreadConstraints:
-      - maxSkew: 1
-        topologyKey: kubernetes.io/hostname
-        whenUnsatisfiable: DoNotSchedule
-        labelSelector:
-          matchLabels:
-            app.kubernetes.io/name: *app
     resources:
       requests:
         cpu: 5m
