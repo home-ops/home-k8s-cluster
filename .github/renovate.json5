@@ -75,12 +75,6 @@
     }
   ],
   "packageRules": [
-    //automerge
-    {
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchCurrentVersion": "!/^0/",
-      "automerge": true
-    },
     {
       "description": "Loose versioning for non-semver packages",
       "matchDatasources": ["docker"],
