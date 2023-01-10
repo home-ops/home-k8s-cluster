@@ -29,7 +29,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/onedr0p/radarr-develop
-      tag: 4.3.0.6671@sha256:5a7b8bf2e487f54ed92174f37a623f0d8800c6ae6d5c708547963b7cb92bda69
+      tag: 4.3.2.6857@sha256:722b5c7a3809841caa711a2339dbe58e6d437c79ef147bdefb2275b422a9b106
     env:
       TZ: "${TIMEZONE}"
       PUSHOVER_DEBUG: "false"
