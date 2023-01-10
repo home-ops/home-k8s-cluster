@@ -18,7 +18,7 @@ spec:
           restartPolicy: Never
           containers:
             - name: *app
-              image: ghcr.io/onedr0p/kubernetes-kubectl:1.25.3@sha256:c6acda21cdc7a479e25b41660e8c5a955dc036b9234a6747f9912a979a674e57
+              image: ghcr.io/onedr0p/kubernetes-kubectl:1.26.0@sha256:0e4be5e6ba3dbb0f12896796da78988136460bb6f027d79e51300a19a021c92a
               env:
                 - name: OPNSENSE_URL
                   value: "http://opnsense.${PRIVATE_SECRET_DOMAIN}"
