@@ -23,7 +23,7 @@ jobs:
 
       - name: Get changed files
         id: generate-build-matrix
-        uses: tj-actions/changed-files@74dc2e8a7877b725678a2195226bd470f10c481b # v34.5.3
+        uses: tj-actions/changed-files@54479c37f5eb47a43e595c6b71e1df2c112ce7f1 # v36.4.1
         with:
           dir_names: true
           dir_names_max_depth: 2
