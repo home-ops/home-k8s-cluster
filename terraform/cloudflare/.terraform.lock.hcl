@@ -2,23 +2,23 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.terraform.io/cloudflare/cloudflare" {
-  version     = "3.29.0"
-  constraints = "3.29.0"
+  version     = "4.9.0"
+  constraints = "4.9.0"
   hashes = [
-    "h1:/l7ao3wRAB/1E+FPsN5wispCAjvV4fctRxSRz2BuqeE=",
-    "h1:1yYUnyyb8OgGTlrEJwWUWcGiJA2nxOoU0L9+xfUjYNQ=",
-    "h1:8/8cVNFIhoN3eogucmPNwKIpYEtyLTuX62/lgicgF4E=",
-    "h1:9eu651QREQY8UIfQjHee4UFf3anvj4gmAqcHkcfrCFU=",
-    "h1:GZGdE3SXMYg7bFicHkIeZojbjgedXFgDf/N/Q8hzLcs=",
-    "h1:M2DxCYDPZqVXhua040IxqWPA5rfH9sLv//OSKHcWsJw=",
-    "h1:N8TDYUfPrpAqUU6ccVqh5O2j8h7yVfriAWVRFT88K8M=",
-    "h1:ObUlP3wpucSRONuMxA74IbtpmwL151f3evo0L2tKW1g=",
-    "h1:SfsmXz6fDv9RZz/jjJ979+N381p29BNBZJmMI6KJc/I=",
-    "h1:XkI9kg771zm3xL8Y6gYV+lbH4WC+PdDup04W6xT12NE=",
-    "h1:iGDvVJ6kdlopyhR3ONeoh8gZWZg8+M/seP7VM7gOp1I=",
-    "h1:ojQhZpoCT+G0Q7ie0p3JBjOM02qeDzWv8diYbN/VpD8=",
-    "h1:swSwcJhM9N9NDpGZl6/Y+GT5l+9ZEVNvoek0gl8hG5g=",
-    "h1:zTODvAxUbXsXBwAhBWbWJ1033Jm1OytbBDUs3f+SAV4=",
+    "h1:+dIBTmu3W4kkuDCP0w4yS+w79xg7mIMMubdyPUYEx6A=",
+    "h1:1YRtl8aBEzFVBt4hbpwmRZi7+9Ix2vyzqrwQE+7fIVU=",
+    "h1:FP3yvz9iHYSy+FKwlJFnrBPZTl0SoZWc2gBrW572FqA=",
+    "h1:O2UMDyPjH7b/fQur5y3aof5HP5jJur+ukLUDa2n/GZI=",
+    "h1:Sa4hsmj1+5X/iuakHLW449JEBuHxyXJ6CkAbFT1g8rY=",
+    "h1:WGGor/URtVcD9/+sKNwrNMuDN25nck8O1oBPQL2Gn1w=",
+    "h1:cetmjVaR9nu5qRwzx+gFq4IvRpk3Po5b9ut1y8dISYo=",
+    "h1:foJr6Wb/yCsf7Jd0eReTaYOmJElRDtypb1UdJICZeC8=",
+    "h1:kvonDs/iIu/opgIZKVJFWDgAc1+mmlgBFhqFiZ0C3o8=",
+    "h1:pcMaKlxds2IpCTvqMV4HuFoJGBIx0jvpABXsHO1nJ5o=",
+    "h1:rZWJfgov+JEtwmilHqEuc5pdlIsFv8CpQlqvOWmGq30=",
+    "h1:tC4NX3DWbBi+YsP1GLoLWNVqU/xoSZAjCOnpdlzeTBs=",
+    "h1:wgUNevFp5ZE7iQT6AwRmIOxE0tlDYqP/68yPoWV6Vy8=",
+    "h1:wt1AzlMq8kRAquBoB7NQbberp2wMvtke5Re6FtMnXso=",
   ]
 }
 
