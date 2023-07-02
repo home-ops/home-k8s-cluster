@@ -29,7 +29,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/onedr0p/lidarr-develop
-      tag: 1.1.0.2649@sha256:2abfa356b1edac3ab33be437896fe03e268e8d545a1b0a0bf8e3fd825d587cd7
+      tag: 1.2.6.3313@sha256:495d884e08bb476ad16f5428c87e143efbf1be5556c9a6e0525ecaafc777e407
     env:
       TZ: "${TIMEZONE}"
       LIDARR__INSTANCE_NAME: Lidarr
