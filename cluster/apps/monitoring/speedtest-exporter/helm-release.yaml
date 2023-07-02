@@ -24,7 +24,7 @@ spec:
   values:
     image:
       repository: ghcr.io/home-ops/speedtest-exporter
-      tag: v1.0.2
+      tag: v1.0.9
     env:
       SPEEDTEST_SERVER: "10292"
     service:
